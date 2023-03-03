@@ -1,2 +1,3 @@
 language = "node.js"
-run = "npm start"
+run = "npm run start"
+entrypoint = "index.js"
