@@ -1,7 +1,7 @@
-const Insta = require('./insta.js');
+const Insta = require("@ber4tbey/insta.js");
 const client = new Insta.Client();
 const { Configuration, OpenAIApi } = require("openai");
-var reply = "";
+
 const config = new Configuration({
     apiKey: process.env.API_KEY,
   });
@@ -19,11 +19,11 @@ client.on('messageCreate', async(message) => {
     if(message.content.toLowerCase().includes('hi') || message.content.toLowerCase().includes('hello')){ 
         return message.chat.sendMessage('VENOM IS MY DEVELOPER CHECK OUT HIS CHANNEL :- https://youtube.com/c/VenomExE');
     } else
-    reply = await openai.createChatCompletion({
+  var reply = await openai.createChatCompletion({
   model: "gpt-3.5-turbo",
-  messages: [{role: "user", content: message}],
+  messages: [{role: "user", content: message.content}],
 });
-message.chat.sendMessage(reply.data.choices[0].message);
+message.chat.sendMessage(reply.data.choices[0].message.content);
 });
 
 client.login(process.env.USERNAME, process.env.PASSWORD);
