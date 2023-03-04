@@ -19,11 +19,16 @@ client.on('messageCreate', async(message) => {
     if(message.content.toLowerCase().includes('hi') || message.content.toLowerCase().includes('hello')){ 
         return message.chat.sendMessage('VENOM IS MY DEVELOPER CHECK OUT HIS CHANNEL :- https://youtube.com/c/VenomExE');
     } else
-  var reply = await openai.createChatCompletion({
-  model: "gpt-3.5-turbo",
-  messages: [{role: "user", content: message.content}],
+  var reply = await openai.createCompletion({
+   model: "text-davinci-003",
+   prompt: ask,
+   temperature: 0.7,
+   max_tokens: 3000,
+   top_p: 1,
+   frequency_penalty: 0,
+   presence_penalty: 0,
 });
-message.chat.sendMessage(reply.data.choices[0].message.content);
+message.chat.sendMessage(reply.data.choices[0].text);
 });
 
 client.login(process.env.USERNAME, process.env.PASSWORD);
