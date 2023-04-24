@@ -21,7 +21,7 @@ client.on('messageCreate', async(message) => {
     } else
   var reply = await openai.createCompletion({
    model: "text-davinci-003",
-   prompt: ask,
+   prompt: message.content,
    temperature: 0.7,
    max_tokens: 3000,
    top_p: 1,
