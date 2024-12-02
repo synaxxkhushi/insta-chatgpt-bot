@@ -17,7 +17,7 @@ client.on('messageCreate', async(message) => {
     message.markSeen();
 
     if(message.content.toLowerCase().includes('hi') || message.content.toLowerCase().includes('hello')){ 
-        return message.chat.sendMessage('VENOM IS MY DEVELOPER CHECK OUT HIS CHANNEL :- https://youtube.com/c/VenomExE');
+        return message.chat.sendMessage('Abhishek IS MY DEVELOPER @maybe__abhii');
     } else
   var reply = await openai.createCompletion({
    model: "text-davinci-003",
